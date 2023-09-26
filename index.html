@@ -1,15 +1,34 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Juego de Ahorcado</title>
+  </head>
   <body>
-    <h1>Sumador</h1>
-    <form id="sumar-form">
-      <label for="primer-numero">Primer número:</label>
-      <input type="number" id="primer-numero" />
-      <label for="segundo-numero">Segundo número:</label>
-      <input type="number" id="segundo-numero" />
-      <input type="submit" value="Sumar" id="sumar-button" />
+    <h1>Juego de Ahorcado</h1>
+    <!-- Categorías -->
+    <div id="categorias">
+      <label for="categoria">Selecciona una categoría:</label>
+      <select id="categoria">
+        <option value="Musica">Musica</option>
+        <!-- Otras categorías pueden ir aquí -->
+      </select>
+    </div>
+    <!-- Botón para comenzar el juego -->
+    <button id="comenzar-button">Comenzar Juego</button>
+    <!-- Espacio para mostrar la palabra oculta -->
+    <div id="palabra-oculta"></div>
+    <!-- Letras incorrectas -->
+    <div id="letras-incorrectas"></div>
+    <!-- Formulario para adivinar letras -->
+    <form id="adivinar-form">
+      <label for="letra">Adivina una letra:</label>
+      <input type="text" id="letra" maxlength="1" />
+      <input type="submit" value="Adivinar" id="adivinar-button" />
     </form>
+
+    <!-- Resultado del juego -->
     <div id="resultado-div"></div>
 
-    <script type="module" src="./src/presenter.js"></script>
-  </body>
+<script src="./src/Verificador.js"></script>
+</body>
 </html>
