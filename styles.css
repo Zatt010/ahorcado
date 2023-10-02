@@ -1,0 +1,86 @@
+/* Clase para ocultar letras no adivinadas */
+.hidden {
+    color: transparent;
+}
+/* Estilos generales para el cuerpo de la página */
+body {
+    background-color: #4466ff;
+    color: #fff;
+    font-family: 'SF Pixelate';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Estilos para el contenedor de la palabra */
+#contenedorPalabra {
+    margin-top: 20px;
+}
+/* Estilos para las letras en el contenedor de la palabra */
+.letter {
+    margin: 0 7px;
+    position: relative;
+    text-align: center;
+}
+/* Estilos para la línea debajo de las letras */
+.letter::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    min-width: 12px;
+}
+/* Estilos para el botón de inicio */
+#botonInicio {
+    margin-top: 20px;
+    appearance: none;
+    font-family: 'SF Pixelate', sans-serif;
+    border: none;
+    width: 300px;
+    padding: 10px;
+    background: #be4949;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* Desactivar selección de texto en el contenedor de la palabra */
+#contenedorPalabra {
+    user-select: none;
+}
+/* Estilos para el contenedor de la categoría */
+#contenedorCategoria {
+    margin-top: 20px;
+    text-align: center; /* Centrar el contenido horizontalmente */
+}
+/* Estilos para la etiqueta "Selecciona una categoría" */
+#contenedorCategoria label {
+    display: block; /* Hacer que la etiqueta sea un bloque */
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+/* Estilos para el elemento "select" */
+#categoriaSelect {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* Cambiar color de texto dentro del "select" */
+#categoriaSelect option {
+    color: #000; /* Cambiar el color del texto de las opciones */
+}
+/* Estilos para el "select" cuando está enfocado (seleccionado) */
+#categoriaSelect:focus {
+    outline: none; /* Quitar el borde de enfoque predeterminado */
+    border-color: #be4949; /* Cambiar el color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(190, 73, 73, 0.5); /* Agregar una sombra al enfocar */
+}

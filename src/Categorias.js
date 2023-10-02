@@ -1,0 +1,2 @@
+export const futbol = ['Barcelona','Madrid','Manchester','Liverpool','Chelsea','Bayern','Milan','Inter','Arsenal','Atletico','Paris','Juventus','Roma','Ajax','Benfica','Porto','Napoli','Tottenham','Valencia'];
+export const basket = ['Lakers','Celtics','Warriors','Bulls','Spurs','Heat','Rockets','Knicks','Clippers','Nets','Bucks','Suns','Thunder','Pelicans','Jazz','Magic','Hawks','Kings','Grizzlies'];

@@ -1,34 +1,29 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Juego de Ahorcado</title>
-  </head>
-  <body>
-    <h1>Juego de Ahorcado</h1>
-    <!-- Categorías -->
-    <div id="categorias">
-      <label for="categoria">Selecciona una categoría:</label>
-      <select id="categoria">
-        <option value="Musica">Musica</option>
-        <!-- Otras categorías pueden ir aquí -->
-      </select>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+    <link href="http://fonts.cdnfonts.com/css/sf-pixelate" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="./src/main.js" defer></script>
+</head>
+<body>
+    <h1>Ahorcado</h1>
+    <div>
+        <canvas id="lienzo"></canvas> <!-- Lienzo para dibujar el ahorcado -->
+        <div id="letrasUsadas"></div> <!-- Mostrar letras usadas -->
     </div>
-    <!-- Botón para comenzar el juego -->
-    <button id="comenzar-button">Comenzar Juego</button>
-    <!-- Espacio para mostrar la palabra oculta -->
-    <div id="palabra-oculta"></div>
-    <!-- Letras incorrectas -->
-    <div id="letras-incorrectas"></div>
-    <!-- Formulario para adivinar letras -->
-    <form id="adivinar-form">
-      <label for="letra">Adivina una letra:</label>
-      <input type="text" id="letra" maxlength="1" />
-      <input type="submit" value="Adivinar" id="adivinar-button" />
-    </form>
-
-    <!-- Resultado del juego -->
-    <div id="resultado-div"></div>
-
-<script src="./src/Verificador.js"></script>
+    <div id="contenedorCategoria">
+        <label for="categoriaSelect">Selecciona una categoría:</label>
+        <select id="categoriaSelect">
+            <option value="futbol">Futbol</option>
+            <option value="basket">Basket</option>
+            <!-- Agrega más categorías aquí si es necesario -->
+        </select>
+    </div>
+    <div id="contenedorPalabra"></div> <!-- Contenedor para mostrar la palabra -->
+    <button id="botonInicio">INICIO</button> <!-- Botón para iniciar el juego -->
 </body>
 </html>
