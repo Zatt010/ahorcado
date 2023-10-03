@@ -61,6 +61,18 @@ export const endGame = () => {
     startButton.style.display = 'block';
 };
 
+export const wonGame = () => {
+    document.removeEventListener('keydown', letterEvent);
+    const { children } = wordContainer;
+    for (let i = 0; i < children.length; i++) {
+        children[i].classList.remove('hidden');
+    }
+    const categoryContainer = document.getElementById('contenedorCategoria');
+    categoryContainer.style.display = 'block';
+    const mensajeVictoria = document.getElementById("mensajeAlGanar");
+    startButton.style.display = 'block';
+};
+
 export const correctLetter = (letter) => {
     const { children } = wordContainer;
     for (let i = 0; i < children.length; i++) {
@@ -69,7 +81,7 @@ export const correctLetter = (letter) => {
             hits++;
         }
     }
-    if (hits === selectedWord.length) endGame();
+    if (hits === selectedWord.length) wonGame();
 };
 
 export const letterInput = (letter) => {

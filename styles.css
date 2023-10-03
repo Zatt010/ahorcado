@@ -84,3 +84,14 @@ body {
     border-color: #be4949; /* Cambiar el color del borde al enfocar */
     box-shadow: 0 0 5px rgba(190, 73, 73, 0.5); /* Agregar una sombra al enfocar */
 }
+
+#mensajeAlGanar {
+    display: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  
