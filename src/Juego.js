@@ -1,6 +1,6 @@
 import { inicializarCanvas, dibujarParteCuerpo, dibujarAhorcado } from './Dibujar.js';
 import { partesCuerpo } from './Dibujar.js';
-import { futbol, basket } from './Categorias.js';
+import { futbol, basket, comida, animales, paises, pokemon } from './Categorias.js';
 const wordContainer = document.getElementById('contenedorPalabra');
 const usedLettersElement = document.getElementById('letrasUsadas');
 const startButton = document.getElementById('botonInicio');
