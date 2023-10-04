@@ -1,2 +1,6 @@
 export const futbol = ['Barcelona','Madrid','Manchester','Liverpool','Chelsea','Bayern','Milan','Inter','Arsenal','Atletico','Paris','Juventus','Roma','Ajax','Benfica','Porto','Napoli','Tottenham','Valencia'];
 export const basket = ['Lakers','Celtics','Warriors','Bulls','Spurs','Heat','Rockets','Knicks','Clippers','Nets','Bucks','Suns','Thunder','Pelicans','Jazz','Magic','Hawks','Kings','Grizzlies'];
+export const comida = ['Pizza','Hamburguesa','Sushi','Tacos','Pasta','Ensalada','Helado','Sopa','Hotdog','Burrito','Pollo','Papas','Tortilla','Sandwich','Frutas','Verduras','Pan','Arroz','Cereal'];
+export const animales = ['Perro','Gato','Elefante','León','Tigre','Jirafa','Cebra','Oso','Panda','Pulpo','Tiburón','Delfín','Gorila','Camello','Aguila','Canguro','Pingüino','Rinoceronte','Hipopótamo'];
+export const paises = ['Estados Unidos','México','España','Italia','Francia','Alemania','Japón','Brasil','Canadá','Australia','Argentina','Inglaterra','China','India','Rusia','Sudáfrica','Egipto','Grecia','Marruecos'];
+export const pokemon = ['Pikachu', 'Charizard', 'Bulbasaur', 'Squirtle', 'Jigglypuff', 'Mewtwo', 'Gengar', 'Eevee', 'Snorlax', 'Machamp', 'Lapras', 'Vaporeon', 'Gyarados', 'Dragonite', 'Mew', 'Greninja', 'Lucario', 'Gardevoir', 'Rayquaza', 'Ho-Oh'];

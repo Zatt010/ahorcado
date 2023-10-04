@@ -18,7 +18,7 @@ export const startGame = () => {
     hits = 0;
     wordContainer.innerHTML = '';
     usedLettersElement.innerHTML = '';
-    
+    document.querySelector('#mensaje-oculto').innerHTML= '';
     // Ocultar el div de categoría
     const categoryContainer = document.getElementById('contenedorCategoria');
     categoryContainer.style.display = 'none';
@@ -45,12 +45,10 @@ export const addBodyPart = (bodyPart) => {
 export const wrongLetter = () => {
     addBodyPart(partesCuerpo[mistakes]);
     mistakes++;
-    if (mistakes === partesCuerpo.length) endGame();
+    if (mistakes === partesCuerpo.length) endGame(false); // El jugador pierde
 };
 
-
-
-export const endGame = () => {
+export const endGame = (hasWon) => {
     document.removeEventListener('keydown', letterEvent);
     const { children } = wordContainer;
     for (let i = 0; i < children.length; i++) {
@@ -60,6 +58,13 @@ export const endGame = () => {
     categoryContainer.style.display = 'block';
 
     startButton.style.display = 'block';
+
+    // Mostrar el mensaje de victoria o derrota según corresponda
+    if (hasWon) {
+        document.querySelector('#mensaje-oculto').innerHTML = "<p> Ganaste! </p>";
+    } else {
+        document.querySelector('#mensaje-oculto').innerHTML = "<p> Perdiste! </p>";
+    }
 };
 
 export const correctLetter = (letter) => {
@@ -70,7 +75,7 @@ export const correctLetter = (letter) => {
             hits++;
         }
     }
-    if (hits === selectedWord.length) endGame();
+    if (hits === selectedWord.length) endGame(true); // El jugador gana
 };
 
 export const letterInput = (letter) => {
@@ -104,11 +109,15 @@ export const selectRandomWord = () => {
     const categorySelect = document.getElementById('categoriaSelect');
     const selectedCategory = categorySelect.value;
 
-    const categoryMap = {
+    const categoryMap = { //categorias
         'futbol': futbol,
         'basket': basket,
-        // Agrega más categorías y sus listas de palabras aquí si es necesario
+        'comida': comida,
+        'animales': animales,
+        'paises': paises,
+        'pokemon': pokemon
     };
+    
 
     const selectedList = categoryMap[selectedCategory];
 
