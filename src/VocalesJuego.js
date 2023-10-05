@@ -12,43 +12,45 @@ let usedLetters;
 let mistakes;
 let hits;
 
-export const iniciarJuegoVocales = () => {
+export const startGameVocales = () => {
     usedLetters = [];
     mistakes = 0;
     hits = 0;
     wordContainer.innerHTML = '';
     usedLettersElement.innerHTML = '';
-    document.querySelector('#mensaje-oculto').innerHTML = '';
+    document.querySelector('#mensaje-oculto').innerHTML= '';
     // Ocultar el div de categoría
     const categoryContainer = document.getElementById('contenedorCategoria');
     categoryContainer.style.display = 'none';
 
     startButton.style.display = 'none';
     inicializarCanvas();
-    seleccionarPalabraAleatoriaVocales();
+    selectRandomWord();
     dibujarPalabra();
+    dibujarVocales();
     dibujarAhorcado(ctx);
-    document.addEventListener('keydown', eventoLetra);
+    document.addEventListener('keydown', letterEvent);
 };
 
-export const agregarLetra = (letra) => {
-    const letraElement = document.createElement('span');
-    letraElement.innerHTML = letra.toUpperCase();
-    usedLettersElement.appendChild(letraElement);
+
+export const addLetter = (letter) => {
+    const letterElement = document.createElement('span');
+    letterElement.innerHTML = letter.toUpperCase();
+    usedLettersElement.appendChild(letterElement);
 };
 
-export const agregarParteCuerpo = (parteCuerpo) => {
-    dibujarParteCuerpo(ctx, parteCuerpo);
+export const addBodyPart = (bodyPart) => {
+    dibujarParteCuerpo(ctx, bodyPart);
 };
 
-export const letraIncorrecta = () => {
-    agregarParteCuerpo(partesCuerpo[mistakes]);
+export const wrongLetter = () => {
+    addBodyPart(partesCuerpo[mistakes]);
     mistakes++;
-    if (mistakes === partesCuerpo.length) finJuego(false); // El jugador pierde
+    if (mistakes === partesCuerpo.length) endGame(false); // El jugador pierde
 };
 
-export const finJuego = (haGanado) => {
-    document.removeEventListener('keydown', eventoLetra);
+export const endGame = (hasWon) => {
+    document.removeEventListener('keydown', letterEvent);
     const { children } = wordContainer;
     for (let i = 0; i < children.length; i++) {
         children[i].classList.remove('hidden');
@@ -59,45 +61,72 @@ export const finJuego = (haGanado) => {
     startButton.style.display = 'block';
 
     // Mostrar el mensaje de victoria o derrota según corresponda
-    if (haGanado) {
-        document.querySelector('#mensaje-oculto').innerHTML = "<p> ¡Ganaste! </p>";
+    if (hasWon) {
+        document.querySelector('#mensaje-oculto').innerHTML = "<p> Ganaste! </p>";
     } else {
-        document.querySelector('#mensaje-oculto').innerHTML = "<p> ¡Perdiste! </p>";
+        document.querySelector('#mensaje-oculto').innerHTML = "<p> Perdiste! </p>";
     }
 };
 
-export const letraCorrecta = (letra) => {
+export const correctLetter = (letter, position) => {
     const { children } = wordContainer;
-    for (let i = 0; i < children.length; i++) {
-        if (children[i].innerHTML === letra) {
-            children[i].classList.toggle('hidden');
-            hits++;
-        }
+    if (children[position]) {
+        children[position].innerHTML = letter.toUpperCase();
+        children[position].classList.remove('hidden');
+        hits++;
+        if (hits === selectedWord.length) endGame(true); // El jugador gana
     }
-    if (hits === selectedWord.length) finJuego(true); // El jugador gana
 };
 
-export const eventoLetra = (evento) => {
-    let nuevaLetra = evento.key.toUpperCase();
-    if (nuevaLetra.match(/^[a-zñ]$/i) && !usedLetters.includes(nuevaLetra)) {
-        letraInput(nuevaLetra);
+export const letterInput = (letter) => {
+    const positions = [];
+    selectedWord.forEach((char, index) => {
+        if (char === letter) {
+            correctLetter(letter, index);
+            positions.push(index);
+        }
+    });
+
+    if (positions.length === 0) {
+        wrongLetter();
+    }
+
+    addLetter(letter);
+    usedLetters.push(letter);
+};
+
+
+export const letterEvent = (event) => {
+    let newLetter = event.key.toUpperCase();
+    if (newLetter.match(/^[a-zñ]$/i) && !usedLetters.includes(newLetter)) {
+        letterInput(newLetter);
     }
 };
+
 
 export const dibujarPalabra = () => {
-    selectedWord.forEach(letra => {
-        const letraElement = document.createElement('span');
-        letraElement.innerHTML = letra.toUpperCase();
-        letraElement.classList.add('letter');
-        letraElement.classList.add('hidden');
-        wordContainer.appendChild(letraElement);
+    selectedWord.forEach(letter => {
+        const letterElement = document.createElement('span');
+        letterElement.innerHTML = letter.toUpperCase();
+        letterElement.classList.add('letter');
+        letterElement.classList.add('hidden');
+        wordContainer.appendChild(letterElement);
+    });
+};
+export const dibujarVocales = () => {
+    const vowels = ['a', 'e', 'i', 'o'];
+    selectedWordWithPosition.forEach(({ letter, position }) => {
+        if (vowels.includes(letter.toLowerCase())) {
+            correctLetter(letter.toLowerCase(), position);
+        }
     });
 };
 
-export const seleccionarPalabraAleatoriaVocales = () => {
-    const categoriaSeleccionada = document.getElementById('categoriaSelect').value;
+export const selectRandomWord = () => {
+    const categorySelect = document.getElementById('categoriaSelect');
+    const selectedCategory = categorySelect.value;
 
-    const mapaCategorias = {
+    const categoryMap = { //categorias
         'futbol': futbol,
         'basket': basket,
         'comida': comida,
@@ -105,13 +134,14 @@ export const seleccionarPalabraAleatoriaVocales = () => {
         'paises': paises,
         'pokemon': pokemon
     };
+    
 
-    const listaSeleccionada = mapaCategorias[categoriaSeleccionada];
+    const selectedList = categoryMap[selectedCategory];
 
-    if (listaSeleccionada) {
-        // Filtrar las vocales de la palabra seleccionada
-        const palabra = listaSeleccionada[Math.floor(Math.random() * listaSeleccionada.length)].toUpperCase();
-        selectedWord = palabra.split('').filter(letra => 'AEIOU'.includes(letra));
+    if (selectedList) {
+        const word = selectedList[Math.floor(Math.random() * selectedList.length)].toUpperCase();
+        selectedWord = word.split('');
+        selectedWordWithPosition = word.split('').map((letter, index) => ({ letter, position: index }));
     } else {
         // Manejar cualquier otro valor seleccionado o mostrar un mensaje de error.
     }
