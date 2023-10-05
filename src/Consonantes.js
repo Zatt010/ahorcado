@@ -11,8 +11,9 @@ let selectedWord;
 let usedLetters;
 let mistakes;
 let hits;
+let selectedWordWithPosition = [];
 
-export const startGameVocales = () => {
+export const startGameConsonantes = () => {
     usedLetters = [];
     mistakes = 0;
     hits = 0;
@@ -27,7 +28,7 @@ export const startGameVocales = () => {
     inicializarCanvas();
     selectRandomWord();
     dibujarPalabra();
-    dibujarVocales();
+    dibujarConsonantes();
     dibujarAhorcado(ctx);
     document.addEventListener('keydown', letterEvent);
 };
@@ -114,14 +115,15 @@ export const dibujarPalabra = () => {
         wordContainer.appendChild(letterElement);
     });
 };
-export const dibujarVocales = () => {
-    const vowels = ['a', 'e', 'i', 'o','u'];
+export const dibujarConsonantes = () => {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
     selectedWordWithPosition.forEach(({ letter, position }) => {
-        if (vowels.includes(letter.toLowerCase())) {
+        if (!vowels.includes(letter.toLowerCase())) {
             correctLetter(letter.toLowerCase(), position);
         }
     });
 };
+
 
 export const selectRandomWord = () => {
     const categorySelect = document.getElementById('categoriaSelect');

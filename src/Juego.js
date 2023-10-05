@@ -56,7 +56,8 @@ export const endGame = (hasWon) => {
     }
     const categoryContainer = document.getElementById('contenedorCategoria');
     categoryContainer.style.display = 'block';
-
+    const gameContainer = document.getElementById('contenedorModoJuego');
+    gameContainer.style.display = 'block';
     startButton.style.display = 'block';
 
     // Mostrar el mensaje de victoria o derrota según corresponda

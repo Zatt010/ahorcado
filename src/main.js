@@ -1,5 +1,6 @@
 import { startGame} from './Juego.js';                  //  Importa Modo de juego Clasico
-import { startGameVocales} from './VocalesJuego.js'; 
+import { startGameVocales} from './VocalesJuego.js';
+import { startGameConsonantes} from './Consonantes.js';
    //Importa Modo de juego Vocales
 document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('botonInicio');  // Obtiene referencia del Botón Inicio
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameModes = {
         'clasico': startGame,
         'vocales': startGameVocales,
+        'consonantes': startGameConsonantes,
     };
 
     startButton.addEventListener('click', () => {
