@@ -115,13 +115,33 @@ export const dibujarPalabra = () => {
     });
 };
 export const dibujarVocales = () => {
+    selectedWord.forEach((letter, index) => {
+        const letterElement = document.createElement('span');
+        if (/[aeiouAEIOU]/.test(letter)) {
+           // letterElement.innerHTML = '_';
+            letterElement.classList.add('vowel');
+            letterElement.addEventListener('click', () => {
+                if (!usedLetters.includes(letter.toLowerCase())) {
+                    letterInput(letter.toLowerCase());
+                }
+            });
+        } else {
+            letterElement.innerHTML = letter.toUpperCase();
+        }
+        letterElement.classList.add('letter');
+        wordContainer.appendChild(letterElement);
+    });
+};
+
+/*
+export const dibujarVocales = () => {
     const vowels = ['a', 'e', 'i', 'o'];
     selectedWordWithPosition.forEach(({ letter, position }) => {
         if (vowels.includes(letter.toLowerCase())) {
             correctLetter(letter.toLowerCase(), position);
         }
     });
-};
+};*/
 
 export const selectRandomWord = () => {
     const categorySelect = document.getElementById('categoriaSelect');
