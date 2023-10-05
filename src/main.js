@@ -1,26 +1,26 @@
 import { startGame} from './Juego.js';                  //  Importa Modo de juego Clasico
 import { startGameVocales} from './VocalesJuego.js';
 import { startGameConsonantes} from './Consonantes.js';
-   //Importa Modo de juego Vocales
+import { startGamePalabras} from './frases.js';
 document.addEventListener('DOMContentLoaded', () => {
-    const startButton = document.getElementById('botonInicio');  // Obtiene referencia del Botón Inicio
-    const modoSelect = document.getElementById('ModoSelect');    // Obtiene referencia del modo de juego
-    const modoJuegoContainer = document.getElementById('contenedorModoJuego'); // Contenedor de modo de juego
-    
+    document.getElementById('contenedorPalabrascompletas').style.display = 'none'; // Oculta el contenedor desde el principio
+
+    const startButton = document.getElementById('botonInicio');
+    const modoSelect = document.getElementById('ModoSelect');
+    const modoJuegoContainer = document.getElementById('contenedorModoJuego');
+
     const gameModes = {
         'clasico': startGame,
         'vocales': startGameVocales,
         'consonantes': startGameConsonantes,
+        'frases': startGamePalabras,
     };
 
     startButton.addEventListener('click', () => {
-        const selectedMode = modoSelect.value; // Obtiene el valor del modo de juego seleccionado
+        const selectedMode = modoSelect.value;
 
-        // Verifica si el modo seleccionado está en el objeto de modos de juego
         if (selectedMode in gameModes) {
-            gameModes[selectedMode](); // Llama a la función correspondiente
-
-            // Oculta el contenedor de selección de modo de juego
+            gameModes[selectedMode]();
             modoJuegoContainer.style.display = 'none';
         } else {
             console.error('Modo de juego no válido');

@@ -26,6 +26,7 @@
             <option value="clasico">Clásico</option>
             <option value="vocales">Mostrar solo vocales</option>
             <option value="consonantes">Mostrar solo consonantes</option>
+            <option value="frases">Adivina con frases</option>
         </select>
     </div>
     <div id="contenedorCategoria">
@@ -38,8 +39,14 @@
             <option value="paises">Paises</option>
             <option value="pokemon">Pokémon</option>
         </select>
-        
+
     </div>
+    <div id="contenedorPalabrascompletas">
+        <label for="palabraInput">Ingresa la palabra:</label>
+        <input type="text" id="palabraInput" />
+        <button id="adivinarPalabra">Adivinar</button>
+    </div>
+
     <div id="contenedorPalabra"></div> <!-- Contenedor para mostrar la palabra -->
     <button id="botonInicio">INICIO</button> <!-- Botón para iniciar el juego -->
     <div id="mensaje-oculto"></div>
