@@ -118,13 +118,17 @@ export const selectRandomWord = () => {
         'paises': paises,
         'pokemon': pokemon
     };
-    
-
     const selectedList = categoryMap[selectedCategory];
 
     if (selectedList) {
-        const word = selectedList[Math.floor(Math.random() * selectedList.length)].toUpperCase();
-        selectedWord = word.split('');
+        const randomIndex = Math.floor(Math.random() * selectedList.length);
+        const selectedEntry = selectedList[randomIndex];
+        selectedWord = selectedEntry.palabra.toUpperCase().split('');
+        // Muestra la pista en el elemento de texto
+        const pistaTexto = document.getElementById('pistaTexto');
+        pistaTexto.textContent = `Pista: ${selectedEntry.pista}`;
+        // Muestra la pista en la consola
+        console.log('Pista:', selectedEntry.pista);
     } else {
         // Manejar cualquier otro valor seleccionado o mostrar un mensaje de error.
     }

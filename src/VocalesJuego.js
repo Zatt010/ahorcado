@@ -140,10 +140,13 @@ export const selectRandomWord = () => {
     const selectedList = categoryMap[selectedCategory];
 
     if (selectedList) {
-        const word = selectedList[Math.floor(Math.random() * selectedList.length)].toUpperCase();
-        selectedWord = word.split('');
-        selectedWordWithPosition = word.split('').map((letter, index) => ({ letter, position: index }));
-    } else {
+        const randomIndex = Math.floor(Math.random() * selectedList.length);
+        const selectedEntry = selectedList[randomIndex];
+        selectedWord = selectedEntry.palabra.toUpperCase().split('');
+        selectedWordWithPosition = selectedEntry.palabra.split('').map((letter, index) => ({ letter, position: index }));
+        const pistaTexto = document.getElementById('pistaTexto');
+        pistaTexto.textContent = `Pista: ${selectedEntry.pista}`;
+    }else {
         // Manejar cualquier otro valor seleccionado o mostrar un mensaje de error.
     }
 };

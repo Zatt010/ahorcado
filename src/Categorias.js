@@ -1,6 +1,134 @@
-export const futbol = ['Barcelona','Madrid','Manchester','Liverpool','Chelsea','Bayern','Milan','Inter','Arsenal','Atletico','Paris','Juventus','Roma','Ajax','Benfica','Porto','Napoli','Tottenham','Valencia'];
-export const basket = ['Lakers','Celtics','Warriors','Bulls','Spurs','Heat','Rockets','Knicks','Clippers','Nets','Bucks','Suns','Thunder','Pelicans','Jazz','Magic','Hawks','Kings','Grizzlies'];
-export const comida = ['Pizza','Hamburguesa','Sushi','Tacos','Pasta','Ensalada','Helado','Sopa','Hotdog','Burrito','Pollo','Papas','Tortilla','Sandwich','Frutas','Verduras','Pan','Arroz','Cereal'];
-export const animales = ['Perro','Gato','Elefante','León','Tigre','Jirafa','Cebra','Oso','Panda','Pulpo','Tiburón','Delfín','Gorila','Camello','Aguila','Canguro','Pingüino','Rinoceronte','Hipopótamo'];
-export const paises = ['Estados Unidos','México','España','Italia','Francia','Alemania','Japón','Brasil','Canadá','Australia','Argentina','Inglaterra','China','India','Rusia','Sudáfrica','Egipto','Grecia','Marruecos'];
-export const pokemon = ['Pikachu', 'Charizard', 'Bulbasaur', 'Squirtle', 'Jigglypuff', 'Mewtwo', 'Gengar', 'Eevee', 'Snorlax', 'Machamp', 'Lapras', 'Vaporeon', 'Gyarados', 'Dragonite', 'Mew', 'Greninja', 'Lucario', 'Gardevoir', 'Rayquaza', 'Ho-Oh'];
+export const futbol = [
+    { palabra: 'Barcelona', pista: 'Equipo de fútbol español' },
+    { palabra: 'Madrid', pista: 'Capital de España' },
+    { palabra: 'Manchester', pista: 'Ciudad en el Reino Unido' },
+    { palabra: 'Liverpool', pista: 'Ciudad en el Reino Unido' },
+    { palabra: 'Chelsea', pista: 'Equipo de fútbol inglés' },
+    { palabra: 'Bayern', pista: 'Equipo de fútbol alemán' },
+    { palabra: 'Milan', pista: 'Equipo de fútbol italiano' },
+    { palabra: 'Inter', pista: 'Equipo de fútbol italiano' },
+    { palabra: 'Arsenal', pista: 'Equipo de fútbol inglés' },
+    { palabra: 'Atletico', pista: 'Equipo de fútbol español' },
+    { palabra: 'Paris', pista: 'Capital de Francia' },
+    { palabra: 'Juventus', pista: 'Equipo de fútbol italiano' },
+    { palabra: 'Roma', pista: 'Ciudad en Italia' },
+    { palabra: 'Ajax', pista: 'Equipo de fútbol neerlandés' },
+    { palabra: 'Benfica', pista: 'Equipo de fútbol portugués' },
+    { palabra: 'Porto', pista: 'Ciudad en Portugal' },
+    { palabra: 'Napoli', pista: 'Equipo de fútbol italiano' },
+    { palabra: 'Tottenham', pista: 'Equipo de fútbol inglés' },
+    { palabra: 'Valencia', pista: 'Ciudad en España' }
+];
+
+export const basket = [
+    { palabra: 'Lakers', pista: 'Ganadores de múltiples campeonatos de la NBA' },
+    { palabra: 'Celtics', pista: 'Conocidos por su histórica rivalidad con los Lakers' },
+    { palabra: 'Warriors', pista: 'Equipo basado en la bahía de San Francisco' },
+    { palabra: 'Bulls', pista: 'Equipo de la ciudad de Chicago' },
+    { palabra: 'Spurs', pista: 'Equipo con un enfoque en el juego en equipo' },
+    { palabra: 'Heat', pista: 'Ubicados en una ciudad conocida por su clima cálido' },
+    { palabra: 'Rockets', pista: 'Equipo de la ciudad de Houston' },
+    { palabra: 'Knicks', pista: 'Juegan en el Madison Square Garden' },
+    { palabra: 'Clippers', pista: 'Comparten la ciudad de Los Ángeles con los Lakers' },
+    { palabra: 'Nets', pista: 'Antes conocidos como los New Jersey Nets' },
+    { palabra: 'Bucks', pista: 'Tienen un ciervo en su logotipo' },
+    { palabra: 'Suns', pista: 'Llamados así por el sol en Arizona' },
+    { palabra: 'Thunder', pista: 'Originalmente se mudaron de Seattle a Oklahoma City' },
+    { palabra: 'Pelicans', pista: 'Antes conocidos como los New Orleans Hornets' },
+    { palabra: 'Jazz', pista: 'Originalmente se establecieron en Nueva Orleans' },
+    { palabra: 'Magic', pista: 'Conocidos por su mago en el logotipo' },
+    { palabra: 'Hawks', pista: 'Antes conocidos como los St. Louis Hawks' },
+    { palabra: 'Kings', pista: 'Han tenido múltiples ubicaciones a lo largo de los años' },
+    { palabra: 'Grizzlies', pista: 'Originalmente se establecieron en Vancouver, Canadá' }
+];
+
+
+export const comida = [
+    { palabra: 'Pizza', pista: 'Plato italiano de masa, salsa de tomate y queso' },
+    { palabra: 'Hamburguesa', pista: 'Sándwich de carne molida entre dos panes' },
+    { palabra: 'Sushi', pista: 'Plato japonés de arroz y pescado crudo' },
+    { palabra: 'Tacos', pista: 'Comida mexicana con tortillas y relleno' },
+    { palabra: 'Pasta', pista: 'Plato italiano con variedad de salsas y formas de masa' },
+    { palabra: 'Ensalada', pista: 'Plato de vegetales frescos y aderezo' },
+    { palabra: 'Helado', pista: 'Postre congelado de leche y saborizantes' },
+    { palabra: 'Sopa', pista: 'Plato líquido caliente con ingredientes diversos' },
+    { palabra: 'Hotdog', pista: 'Sándwich de salchicha en un pan largo' },
+    { palabra: 'Burrito', pista: 'Comida mexicana con tortilla rellena' },
+    { palabra: 'Pollo', pista: 'Ave comestible, a menudo asada o frita' },
+    { palabra: 'Papas', pista: 'Vegetal tuberoso comúnmente frito o asado' },
+    { palabra: 'Tortilla', pista: 'Pan plano de harina o maíz' },
+    { palabra: 'Sandwich', pista: 'Sándwich con rellenos entre dos rebanadas de pan' },
+    { palabra: 'Frutas', pista: 'Alimentos naturales dulces y nutritivos' },
+    { palabra: 'Verduras', pista: 'Alimentos de hojas verdes y otros vegetales' },
+    { palabra: 'Pan', pista: 'Alimento básico hecho de harina, agua y levadura' },
+    { palabra: 'Arroz', pista: 'Grano comestible ampliamente utilizado' },
+    { palabra: 'Cereal', pista: 'Desayuno hecho de granos secos con leche' },
+];
+
+export const animales = [
+    { palabra: 'Perro', pista: 'Mascota leal y amigable' },
+    { palabra: 'Gato', pista: 'Mascota independiente y cariñosa' },
+    { palabra: 'Elefante', pista: 'El animal terrestre más grande del mundo' },
+    { palabra: 'León', pista: 'Rey de la selva en África' },
+    { palabra: 'Tigre', pista: 'Gran felino con rayas en su pelaje' },
+    { palabra: 'Jirafa', pista: 'El animal terrestre más alto del mundo' },
+    { palabra: 'Cebra', pista: 'Animal con rayas blancas y negras' },
+    { palabra: 'Oso', pista: 'Mamífero grande y peludo que hiberna en invierno' },
+    { palabra: 'Panda', pista: 'Oso de peluche blanco y negro' },
+    { palabra: 'Pulpo', pista: 'Molusco marino con tentáculos' },
+    { palabra: 'Tiburón', pista: 'Depredador acuático temido' },
+    { palabra: 'Delfín', pista: 'Mamífero marino inteligente y juguetón' },
+    { palabra: 'Gorila', pista: 'Primo cercano de los humanos en la evolución' },
+    { palabra: 'Camello', pista: 'Animal adaptado al desierto con joroba' },
+    { palabra: 'Águila', pista: 'Ave rapaz con visión aguda' },
+    { palabra: 'Canguro', pista: 'Animal marsupial saltador' },
+    { palabra: 'Pingüino', pista: 'Ave no voladora que nada en el agua' },
+    { palabra: 'Rinoceronte', pista: 'Animal herbívoro con un cuerno en el hocico' },
+    { palabra: 'Hipopótamo', pista: 'Mamífero acuático grande y pesado' },
+];
+
+export const paises = [
+    { palabra: 'Estados Unidos', pista: 'País conocido por su sistema político democrático' },
+    { palabra: 'México', pista: 'País famoso por su gastronomía, como los tacos y el guacamole' },
+    { palabra: 'España', pista: 'País europeo con una rica cultura de flamenco y tapas' },
+    { palabra: 'Italia', pista: 'País conocido por su deliciosa comida, como la pizza y la pasta' },
+    { palabra: 'Francia', pista: 'País famoso por su moda, arte y la Torre Eiffel' },
+    { palabra: 'Alemania', pista: 'País europeo con una fuerte tradición de cerveza y salchichas' },
+    { palabra: 'Japón', pista: 'País de Asia conocido por la tecnología avanzada y la cultura del sushi' },
+    { palabra: 'Brasil', pista: 'País sudamericano famoso por el carnaval y el fútbol' },
+    { palabra: 'Canadá', pista: 'País con vastos paisajes naturales y hockey sobre hielo' },
+    { palabra: 'Australia', pista: 'País con una diversidad única de vida silvestre y playas hermosas' },
+    { palabra: 'Argentina', pista: 'País sudamericano conocido por el tango y la carne asada' },
+    { palabra: 'Inglaterra', pista: 'Parte del Reino Unido, con una larga historia y cultura' },
+    { palabra: 'China', pista: 'País asiático con una historia antigua y la Gran Muralla' },
+    { palabra: 'India', pista: 'País con una rica diversidad cultural y una cocina picante' },
+    { palabra: 'Rusia', pista: 'País transcontinental conocido por su vasto territorio' },
+    { palabra: 'Sudáfrica', pista: 'País africano con una diversidad de culturas y la Table Mountain' },
+    { palabra: 'Egipto', pista: 'País famoso por las pirámides y el río Nilo' },
+    { palabra: 'Grecia', pista: 'País europeo conocido por su historia antigua y la filosofía' },
+    { palabra: 'Marruecos', pista: 'País africano con una mezcla de culturas y zocos coloridos' }
+];
+
+export const pokemon = [
+    { palabra: '¡Atrápalos ya!', pista: 'Adivina la frase! Frase icónica de la serie Pokémon' },
+    { palabra: 'Pikachu, yo te elijo!', pista: 'Adivina la frase! Frase de Ash Ketchum al elegir a Pikachu como su Pokémon inicial' },
+    { palabra: 'Dragón de fuego', pista: 'Adivina la frase! Descripción de Charizard' },
+    { palabra: 'Planta inicial', pista: 'Adivina la frase! Descripción de Bulbasaur' },
+    { palabra: 'Tortuga acuática', pista: 'Adivina la frase! Descripción de Squirtle' },
+    { palabra: 'Cantante adormecedor', pista: 'Adivina la frase! Descripción de Jigglypuff' },
+    { palabra: 'Psíquico poderoso', pista: 'Adivina la frase! Descripción de Mewtwo' },
+    { palabra: 'Travieso y espeluznante', pista: 'Adivina la frase! Descripción de Gengar' },
+    { palabra: 'Evolución versátil', pista: 'Adivina la frase! Descripción de Eevee' },
+    { palabra: 'Duerme en caminos', pista: 'Adivina la frase! Descripción de Snorlax' },
+    { palabra: 'Cuatro brazos fuertes', pista: 'Adivina la frase! Descripción de Machamp' },
+    { palabra: 'Navegante acuático', pista: 'Adivina la frase! Descripción de Lapras' },
+    { palabra: 'Evolución acuática', pista: 'Adivina la frase! Descripción de Vaporeon' },
+    { palabra: 'Transformación impactante', pista: 'Adivina la frase! Descripción de Gyarados' },
+    { palabra: 'Dragón veloz', pista: 'Adivina la frase! Descripción de Dragonite' },
+    { palabra: 'Misterio legendario', pista: 'Adivina la frase! Descripción de Mew' },
+    { palabra: 'Ninja acuático', pista: 'Adivina la frase! Descripción de Greninja' },
+    { palabra: 'Luchador leal', pista: 'Adivina la frase! Descripción de Lucario' },
+    { palabra: 'Elegancia en forma de Pokémon', pista: 'Adivina la frase! Descripción de Gardevoir' },
+    { palabra: 'Señor de los cielos', pista: 'Adivina la frase! Descripción de Rayquaza' },
+    { palabra: 'Guardián del arcoíris', pista: 'Adivina la frase! Descripción de Ho-Oh' }
+]
