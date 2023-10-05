@@ -28,7 +28,7 @@ export const startGame = () => {
     selectRandomWord();
     dibujarPalabra();
     dibujarAhorcado(ctx);
-    document.addEventListener('keydown', letterEvent);
+    document.addEventListener('keydown', letterEvent); //Letras introducidas
 };
 
 

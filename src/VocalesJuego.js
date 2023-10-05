@@ -11,6 +11,7 @@ let selectedWord;
 let usedLetters;
 let mistakes;
 let hits;
+let selectedWordWithPosition = [];
 
 export const startGameVocales = () => {
     usedLetters = [];
