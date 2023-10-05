@@ -49,6 +49,7 @@ export const wrongLetter = () => {
 };
 
 
+
 export const endGame = () => {
     document.removeEventListener('keydown', letterEvent);
     const { children } = wordContainer;
