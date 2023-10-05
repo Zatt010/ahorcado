@@ -10,11 +10,17 @@
     <script type="module" src="./src/main.js" defer></script>
 </head>
 <body>
+    <p id="pista"></p>
     <h1>Ahorcado</h1>
+    <span id="pistaTexto"></span>
+    <p id="vocalesContainer"></p>
+
+
     <div>
         <canvas id="lienzo"></canvas> <!-- Lienzo para dibujar el ahorcado -->
         <div id="letrasUsadas"></div> <!-- Mostrar letras usadas -->
     </div>
+<<<<<<< HEAD
     <div id="mensajeAlGanar">
         ¡Felicidades! Adivinaste La Palabra
         Haz ganado :3
@@ -25,9 +31,37 @@
             <option value="futbol">Futbol</option>
             <option value="basket">Basket</option>
             <!-- Agrega más categorías aquí si es necesario -->
+=======
+    <div id="contenedorModoJuego">
+        <label for="ModoSelect">Selecciona un modo de juego:</label>
+        <select id="ModoSelect"> <!-- Elección de modos -->
+            <option value="clasico">Clásico</option>
+            <option value="vocales">Mostrar solo vocales</option>
+            <option value="consonantes">Mostrar solo consonantes</option>
+            <option value="frases">Adivina con frases</option>
+>>>>>>> main
         </select>
     </div>
+    <div id="contenedorCategoria">
+        <label for="categoriaSelect">Selecciona una categoría:</label>
+        <select id="categoriaSelect"> <!-- Eleccion de categorias -->
+            <option value="futbol">Futbol</option>
+            <option value="basket">Basket</option>
+            <option value="comida">Comida</option>
+            <option value="animales">Animales</option>
+            <option value="paises">Paises</option>
+            <option value="pokemon">Pokémon</option>
+        </select>
+
+    </div>
+    <div id="contenedorPalabrascompletas">
+        <label for="palabraInput">Ingresa la palabra:</label>
+        <input type="text" id="palabraInput" />
+        <button id="adivinarPalabra">Adivinar</button>
+    </div>
+
     <div id="contenedorPalabra"></div> <!-- Contenedor para mostrar la palabra -->
     <button id="botonInicio">INICIO</button> <!-- Botón para iniciar el juego -->
+    <div id="mensaje-oculto"></div>
 </body>
 </html>

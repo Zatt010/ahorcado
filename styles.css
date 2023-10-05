@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+/*uuuuuuuu*/
 /* Estilos para el contenedor de la palabra */
 #contenedorPalabra {
     margin-top: 20px;
@@ -84,6 +85,7 @@ body {
     border-color: #be4949; /* Cambiar el color del borde al enfocar */
     box-shadow: 0 0 5px rgba(190, 73, 73, 0.5); /* Agregar una sombra al enfocar */
 }
+<<<<<<< HEAD
 
 #mensajeAlGanar {
     display: none;
@@ -94,4 +96,66 @@ body {
     margin-top: 20px;
   }
   
+=======
+/*Estilo mensaje oculto*/
+#mensaje-oculto {
+    font-size: 40px;
+}
+
+/* Estilos para el contenedor del modo de juego */
+#contenedorModoJuego {
+    margin-top: 20px;
+  }
+  
+  #contenedorModoJuego label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  #ModoSelect {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para el contenedor de palabras completas */
+  #contenedorPalabrascompletas {
+    margin-top: 20px;
+    display: flex; /* Utilizamos flexbox para alinear elementos horizontalmente */
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+  
+  #contenedorPalabrascompletas label {
+    flex: 1; /* El label ocupará todo el espacio disponible en la columna */
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  #palabraInput {
+    flex: 3; /* El campo de entrada ocupará 3 veces más espacio que el label */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px; /* Espacio entre el campo de entrada y el botón */
+  }
+  
+  #adivinarPalabra {
+    background-color: #005abb;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #adivinarPalabra:hover {
+    background-color: #00356d;
+  }
+>>>>>>> main
   

@@ -11,8 +11,9 @@ let selectedWord;
 let usedLetters;
 let mistakes;
 let hits;
+let selectedWordWithPosition = [];
 
-export const startGame = () => {
+export const startGameConsonantes = () => {
     usedLetters = [];
     mistakes = 0;
     hits = 0;
@@ -27,8 +28,9 @@ export const startGame = () => {
     inicializarCanvas();
     selectRandomWord();
     dibujarPalabra();
+    dibujarConsonantes();
     dibujarAhorcado(ctx);
-    document.addEventListener('keydown', letterEvent); //Letras introducidas
+    document.addEventListener('keydown', letterEvent);
 };
 
 
@@ -68,42 +70,33 @@ export const endGame = (hasWon) => {
     }
 };
 
-export const wonGame = () => {
-    document.removeEventListener('keydown', letterEvent);
+export const correctLetter = (letter, position) => {
     const { children } = wordContainer;
-    for (let i = 0; i < children.length; i++) {
-        children[i].classList.remove('hidden');
+    if (children[position]) {
+        children[position].innerHTML = letter.toUpperCase();
+        children[position].classList.remove('hidden');
+        hits++;
+        if (hits === selectedWord.length) endGame(true); // El jugador gana
     }
-    const categoryContainer = document.getElementById('contenedorCategoria');
-    categoryContainer.style.display = 'block';
-    const mensajeVictoria = document.getElementById("mensajeAlGanar");
-    startButton.style.display = 'block';
-};
-
-export const correctLetter = (letter) => {
-    const { children } = wordContainer;
-    for (let i = 0; i < children.length; i++) {
-        if (children[i].innerHTML === letter) {
-            children[i].classList.toggle('hidden');
-            hits++;
-        }
-    }
-<<<<<<< HEAD
-    if (hits === selectedWord.length) wonGame();
-=======
-    if (hits === selectedWord.length) endGame(true); // El jugador gana
->>>>>>> main
 };
 
 export const letterInput = (letter) => {
-    if (selectedWord.includes(letter)) {
-        correctLetter(letter);
-    } else {
+    const positions = [];
+    selectedWord.forEach((char, index) => {
+        if (char === letter) {
+            correctLetter(letter, index);
+            positions.push(index);
+        }
+    });
+
+    if (positions.length === 0) {
         wrongLetter();
     }
+
     addLetter(letter);
     usedLetters.push(letter);
 };
+
 
 export const letterEvent = (event) => {
     let newLetter = event.key.toUpperCase();
@@ -111,6 +104,7 @@ export const letterEvent = (event) => {
         letterInput(newLetter);
     }
 };
+
 
 export const dibujarPalabra = () => {
     selectedWord.forEach(letter => {
@@ -121,6 +115,15 @@ export const dibujarPalabra = () => {
         wordContainer.appendChild(letterElement);
     });
 };
+export const dibujarConsonantes = () => {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    selectedWordWithPosition.forEach(({ letter, position }) => {
+        if (!vowels.includes(letter.toLowerCase())) {
+            correctLetter(letter.toLowerCase(), position);
+        }
+    });
+};
+
 
 export const selectRandomWord = () => {
     const categorySelect = document.getElementById('categoriaSelect');
@@ -134,18 +137,18 @@ export const selectRandomWord = () => {
         'paises': paises,
         'pokemon': pokemon
     };
+    
+
     const selectedList = categoryMap[selectedCategory];
 
     if (selectedList) {
         const randomIndex = Math.floor(Math.random() * selectedList.length);
         const selectedEntry = selectedList[randomIndex];
         selectedWord = selectedEntry.palabra.toUpperCase().split('');
-        // Muestra la pista en el elemento de texto
+        selectedWordWithPosition = selectedEntry.palabra.split('').map((letter, index) => ({ letter, position: index }));
         const pistaTexto = document.getElementById('pistaTexto');
         pistaTexto.textContent = `Pista: ${selectedEntry.pista}`;
-        // Muestra la pista en la consola
-        console.log('Pista:', selectedEntry.pista);
-    } else {
+    }else {
         // Manejar cualquier otro valor seleccionado o mostrar un mensaje de error.
     }
 };
